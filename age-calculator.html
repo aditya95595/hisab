@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age Calculator — Exact Age in Years, Months & Days | Hisab</title>
+<meta name="description" content="Free age calculator: enter your birthdate to get your exact age in years, months and days, plus days until your next birthday. Private, no sign-up.">
+<link rel="canonical" href="https://hisab.tool-web.workers.dev/age-calculator.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0c0c11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#faf6ec" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hisab">
+<meta property="og:title" content="Age Calculator — Exact Age in Years, Months & Days">
+<meta property="og:description" content="Free age calculator: exact age plus next-birthday countdown.">
+<meta property="og:url" content="https://hisab.tool-web.workers.dev/age-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Age Calculator — Exact Age in Years, Months & Days">
+<meta name="twitter:description" content="Free age calculator: exact age plus next-birthday countdown.">
+<link rel="stylesheet" href="styles.css">
+<script src="theme-init.js"></script>
+<script src="calc.js" defer></script>
+<script src="site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is age in months and days calculated?","acceptedAnswer":{"@type":"Answer","text":"By calendar difference: full years first, then remaining full months, then remaining days — accounting for the different lengths of months and leap years."}},{"@type":"Question","name":"Why does my age differ across calculators?","acceptedAnswer":{"@type":"Answer","text":"Some calculators divide total days by 365.25, which approximates. A calendar-correct method counts actual years, months and days, and handles leap years exactly."}},{"@type":"Question","name":"Does the age calculator work for future dates?","acceptedAnswer":{"@type":"Answer","text":"No — a birthdate in the future is not a valid age. The calculator asks for a date on or before today."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">हि</span><span>Hisab</span></a>
+<nav class="nav" aria-label="Primary"><a href="index.html">Home</a><a href="emi-calculator.html">EMI</a><a href="sip-calculator.html">SIP</a><a href="percentage-calculator.html">Percentage</a></nav>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button>
+</div></header>
+<main><div class="container">
+<p class="eyebrow">Free calculator</p>
+<h1>Age Calculator</h1>
+<p class="page-lead">Your exact age in years, months and days — plus a countdown to your next birthday.</p>
+<div class="workspace">
+<form class="calc-form" data-calc="age" aria-label="Age inputs">
+<div class="field"><label for="age-b">Date of birth</label><input id="age-b" type="date" data-field="birthdate" value="2000-01-01" max="2026-10-10"></div>
+</form>
+<div class="results" aria-live="polite">
+<div class="result-hero"><span>Your age</span><strong><span data-result="years">—</span> yrs <span data-result="months">—</span> mo <span data-result="days">—</span> days</strong></div>
+<dl class="result-rows">
+<div><dt>Next birthday in</dt><dd><span data-result="next">—</span> days</dd></div>
+<div><dt>Total days lived</dt><dd data-result="lived">—</dd></div>
+</dl>
+<p class="result-note">Calendar-correct: real month lengths and leap years.</p>
+</div>
+</div>
+<div class="narrow explain">
+<h2>How exact age is worked out</h2>
+<p>Counting age looks simple until leap years and 28-day Februaries get involved. The correct method counts full years first, then full months, then leftover days — using each month's actual length.</p>
+<p>That is why two calculators can disagree by a day: approximations divide total days by 365.25, while this one walks the calendar properly.</p>
+</div>
+<div class="narrow faq">
+<h2>Age questions, answered</h2>
+<details><summary>How is age in months and days calculated?</summary><p>By calendar difference: full years first, then remaining full months, then remaining days — accounting for the different lengths of months and leap years.</p></details>
+<details><summary>Why does my age differ across calculators?</summary><p>Some calculators divide total days by 365.25, which approximates. A calendar-correct method counts actual years, months and days, and handles leap years exactly.</p></details>
+<details><summary>Does the age calculator work for future dates?</summary><p>No — a birthdate in the future is not a valid age. The calculator asks for a date on or before today.</p></details>
+</div>
+<nav class="related" aria-label="Related calculators"><a href="percentage-calculator.html">Percentage Calculator</a><a href="cgpa-calculator.html">CGPA Calculator</a><a href="bmi-calculator.html">BMI Calculator</a><a href="discount-calculator.html">Discount Calculator</a></nav>
+</div></main>
+<footer class="site-footer"><div class="container">
+<div class="foot-grid">
+<div><a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">हि</span><span>Hisab</span></a>
+<p class="disclaimer">Calculators on Hisab are for planning and education only — they are not financial advice. Figures are estimates from standard formulas; confirm important decisions with your bank or a qualified adviser.</p></div>
+<nav aria-label="Calculators"><ul class="foot-links">
+<li><a href="emi-calculator.html">EMI Calculator</a></li>
+<li><a href="sip-calculator.html">SIP Calculator</a></li>
+<li><a href="fd-calculator.html">FD Calculator</a></li>
+<li><a href="rd-calculator.html">RD Calculator</a></li>
+<li><a href="ppf-calculator.html">PPF Calculator</a></li>
+<li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+<li><a href="age-calculator.html">Age Calculator</a></li>
+<li><a href="cgpa-calculator.html">CGPA Calculator</a></li>
+<li><a href="bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="discount-calculator.html">Discount Calculator</a></li>
+</ul></nav>
+</div>
+<p class="copyright">© <span id="year">2026</span> Hisab. Free calculators, computed in your browser.</p>
+</div></footer>
+</body>
+</html>

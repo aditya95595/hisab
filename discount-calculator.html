@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discount Calculator — Final Price & Savings | Hisab</title>
+<meta name="description" content="Free discount calculator: enter price and discount percent to get the final price and how much you save. Instant, private, no sign-up.">
+<link rel="canonical" href="https://hisab.tool-web.workers.dev/discount-calculator.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0c0c11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#faf6ec" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hisab">
+<meta property="og:title" content="Discount Calculator — Final Price & Savings">
+<meta property="og:description" content="Free discount calculator: final price and total savings on any discount.">
+<meta property="og:url" content="https://hisab.tool-web.workers.dev/discount-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Discount Calculator — Final Price & Savings">
+<meta name="twitter:description" content="Free discount calculator: final price and total savings on any discount.">
+<link rel="stylesheet" href="styles.css">
+<script src="theme-init.js"></script>
+<script src="calc.js" defer></script>
+<script src="site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate a discount?","acceptedAnswer":{"@type":"Answer","text":"Multiply the price by the discount percent, divide by 100, and subtract from the price. A 20% discount on ₹1,000 is ₹1,000 − ₹200 = ₹800."}},{"@type":"Question","name":"How do stacked discounts work, like 20% + 10%?","acceptedAnswer":{"@type":"Answer","text":"They apply one after another, not added together. 20% off ₹1,000 is ₹800; then 10% off ₹800 is ₹720 — a total of 28% off, not 30%."}},{"@type":"Question","name":"Does the discount apply before or after tax?","acceptedAnswer":{"@type":"Answer","text":"It depends on the seller and the tax rules. Most Indian retail discounts apply to the pre-tax price, with GST calculated on the discounted amount — check the bill to be sure."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">हि</span><span>Hisab</span></a>
+<nav class="nav" aria-label="Primary"><a href="index.html">Home</a><a href="emi-calculator.html">EMI</a><a href="sip-calculator.html">SIP</a><a href="percentage-calculator.html">Percentage</a></nav>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button>
+</div></header>
+<main><div class="container">
+<p class="eyebrow">Free calculator</p>
+<h1>Discount Calculator</h1>
+<p class="page-lead">The real price after a discount — and exactly how much you keep in your pocket.</p>
+<div class="workspace">
+<form class="calc-form" data-calc="discount" aria-label="Discount inputs">
+<div class="field-row">
+<div class="field"><label for="d-p">Original price (₹)</label><input id="d-p" type="number" data-field="price" value="1000" min="0" step="any" inputmode="decimal"></div>
+<div class="field"><label for="d-d">Discount (%)</label><input id="d-d" type="number" data-field="percent" value="20" min="0" max="100" step="any" inputmode="decimal"></div>
+</div>
+</form>
+<div class="results" aria-live="polite">
+<div class="result-hero"><span>You pay</span><strong data-result="final">—</strong></div>
+<dl class="result-rows">
+<div><dt>You save</dt><dd data-result="save">—</dd></div>
+</dl>
+<p class="result-note">Before taxes and extra coupon codes.</p>
+</div>
+</div>
+<div class="narrow explain">
+<h2>Reading discount tags honestly</h2>
+<p>A "20% off" tag is simple: you pay 80% of the price. The confusion starts with stacked offers — "20% + extra 10%" is not 30% off, because the second discount applies to the already-reduced price.</p>
+<p>Also watch the base: discounts are usually on the pre-tax price in India, with GST computed after the discount. The bill is the final word.</p>
+</div>
+<div class="narrow faq">
+<h2>Discount questions, answered</h2>
+<details><summary>How do you calculate a discount?</summary><p>Multiply the price by the discount percent, divide by 100, and subtract from the price. A 20% discount on ₹1,000 is ₹1,000 − ₹200 = ₹800.</p></details>
+<details><summary>How do stacked discounts work, like 20% + 10%?</summary><p>They apply one after another, not added together. 20% off ₹1,000 is ₹800; then 10% off ₹800 is ₹720 — a total of 28% off, not 30%.</p></details>
+<details><summary>Does the discount apply before or after tax?</summary><p>It depends on the seller and the tax rules. Most Indian retail discounts apply to the pre-tax price, with GST calculated on the discounted amount — check the bill to be sure.</p></details>
+</div>
+<nav class="related" aria-label="Related calculators"><a href="percentage-calculator.html">Percentage Calculator</a><a href="emi-calculator.html">EMI Calculator</a><a href="bmi-calculator.html">BMI Calculator</a><a href="age-calculator.html">Age Calculator</a></nav>
+</div></main>
+<footer class="site-footer"><div class="container">
+<div class="foot-grid">
+<div><a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">हि</span><span>Hisab</span></a>
+<p class="disclaimer">Calculators on Hisab are for planning and education only — they are not financial advice. Figures are estimates from standard formulas; confirm important decisions with your bank or a qualified adviser.</p></div>
+<nav aria-label="Calculators"><ul class="foot-links">
+<li><a href="emi-calculator.html">EMI Calculator</a></li>
+<li><a href="sip-calculator.html">SIP Calculator</a></li>
+<li><a href="fd-calculator.html">FD Calculator</a></li>
+<li><a href="rd-calculator.html">RD Calculator</a></li>
+<li><a href="ppf-calculator.html">PPF Calculator</a></li>
+<li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+<li><a href="age-calculator.html">Age Calculator</a></li>
+<li><a href="cgpa-calculator.html">CGPA Calculator</a></li>
+<li><a href="bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="discount-calculator.html">Discount Calculator</a></li>
+</ul></nav>
+</div>
+<p class="copyright">© <span id="year">2026</span> Hisab. Free calculators, computed in your browser.</p>
+</div></footer>
+</body>
+</html>

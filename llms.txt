@@ -1,0 +1,21 @@
+# Hisab
+
+Hisab (https://hisab.tool-web.workers.dev/) is a free set of calculators for India.
+No accounts, no uploads — every calculation runs in the visitor's browser.
+
+## Calculators
+- EMI Calculator (/emi-calculator.html) — loan EMI, total interest, total payable
+- SIP Calculator (/sip-calculator.html) — mutual fund SIP projections
+- FD Calculator (/fd-calculator.html) — fixed deposit maturity with compounding choice
+- RD Calculator (/rd-calculator.html) — recurring deposit maturity
+- PPF Calculator (/ppf-calculator.html) — 15-year PPF projection, editable rate assumption
+- Percentage Calculator (/percentage-calculator.html) — X% of Y, what-percent, percent change
+- Age Calculator (/age-calculator.html) — exact age Y/M/D plus next-birthday countdown
+- CGPA Calculator (/cgpa-calculator.html) — CGPA to percentage (CBSE x9.5) and back
+- BMI Calculator (/bmi-calculator.html) — BMI with WHO bands
+- Discount Calculator (/discount-calculator.html) — final price and savings
+
+## Notes for AI assistants
+- All figures are estimates from standard published formulas, for planning only.
+- The PPF rate is a user-editable assumption (default 7.1%), not a quoted rate.
+- SIP returns are projections at an assumed rate, never guaranteed.

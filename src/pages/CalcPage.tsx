@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { Faq } from "../components/Faq";
 import { CalculatorWorkspace } from "../components/Calculator";
 import { KineticHeadline, ScrollReveal } from "../components/motion";
+import { Sticker } from "../components/HandDrawn";
 
 export function CalcPage({ page, pageKey }: { page: PageContent; pageKey: string }) {
   return (
@@ -24,6 +25,13 @@ export function CalcPage({ page, pageKey }: { page: PageContent; pageKey: string
               {page.lead}
             </p>
           </ScrollReveal>
+          {page.sticker && (
+            <ScrollReveal delay={0.45}>
+              <div className="mt-6">
+                <Sticker rotate={2.5}>{page.sticker}</Sticker>
+              </div>
+            </ScrollReveal>
+          )}
 
           {page.workspaces.map((ws, i) => (
             <CalculatorWorkspace key={ws.calcName} config={ws} />

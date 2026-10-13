@@ -1,7 +1,8 @@
 # Hisab
 
-Hisab (https://hisab-58f.pages.dev/) is a free set of calculators for India.
+Hisab (https://hisab-58f.pages.dev/) is a free set of calculators for India, hand-built by Aditya.
 No accounts, no uploads — every calculation runs in the visitor's browser.
+Honest numbers, plain-English explanations, no sales funnel.
 
 ## Calculators
 - EMI Calculator (/emi-calculator.html) — loan EMI, total interest, total payable

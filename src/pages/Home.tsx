@@ -13,6 +13,12 @@ import {
   WordCycle,
   MagneticButton,
 } from "../components/motion";
+import {
+  ScribbleUnderline,
+  HandArrow,
+  CircleHighlight,
+  Sticker,
+} from "../components/HandDrawn";
 import { TOOL_ICONS, ArrowRightIcon, CheckIcon } from "../components/icons";
 
 function AuroraBackground() {
@@ -85,12 +91,16 @@ export function HomePage() {
             </ScrollReveal>
             <h1 className="max-w-[16ch] font-display text-[clamp(2.6rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight">
               <KineticHeadline as="span" text={HOME.h1a} className="block" />
-              <KineticHeadline
-                as="span"
-                text={HOME.h1b}
-                delay={0.55}
-                className="grad-text block"
-              />
+              <span className="relative inline-block">
+                <KineticHeadline
+                  as="span"
+                  text={HOME.h1b}
+                  delay={0.55}
+                  className="grad-text block"
+                />
+                {/* hand-drawn marker underline under "seconds." */}
+                <ScribbleUnderline className="absolute -bottom-1 left-0 h-[0.32em] w-full" />
+              </span>
             </h1>
             <ScrollReveal delay={0.9}>
               <p className="mt-5 max-w-[52ch] text-[1.1rem] text-stone-600 dark:text-ink-soft">
@@ -98,7 +108,11 @@ export function HomePage() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={1.05}>
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="relative mt-7 flex flex-wrap items-center gap-3">
+                {/* hand-drawn arrow nudging the primary CTA (desktop only) */}
+                <HandArrow
+                  className="absolute -left-20 top-1/2 hidden w-16 -translate-y-1/2 rotate-[24deg] lg:block"
+                />
                 <MagneticButton
                   type="button"
                   onClick={() =>
@@ -115,6 +129,9 @@ export function HomePage() {
                 >
                   Try the EMI calculator
                 </a>
+                <Sticker rotate={-3} className="ml-1 mt-2 sm:mt-0">
+                  {HOME.sticker}
+                </Sticker>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={1.2}>
@@ -137,10 +154,15 @@ export function HomePage() {
                 {[
                   ["10", "calculators, zero sign-up"],
                   ["100%", "free, forever"],
-                  ["0", "bytes of your data uploaded"],
-                ].map(([n, l]) => (
-                  <div key={l} className="flex items-baseline gap-2.5">
-                    <span className="grad-text font-display text-[1.6rem] font-bold">{n}</span>
+                  ["0", "bytes of your data uploaded", true],
+                ].map(([n, l, circled]) => (
+                  <div key={l as string} className="flex items-baseline gap-2.5">
+                    <span className="relative inline-block">
+                      <span className="grad-text font-display text-[1.6rem] font-bold">{n}</span>
+                      {circled ? (
+                        <CircleHighlight className="absolute -inset-x-3 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)]" />
+                      ) : null}
+                    </span>
                     <span className="text-[0.9rem] text-stone-500 dark:text-ink-muted">{l}</span>
                   </div>
                 ))}
@@ -202,6 +224,32 @@ export function HomePage() {
                 <p className="mt-4 max-w-[68ch] text-stone-600 dark:text-ink-soft">{p}</p>
               </ScrollReveal>
             ))}
+          </div>
+        </section>
+
+        {/* Author note — deliberately off-grid: pushed right, slight tilt,
+            like a margin note someone actually wrote. */}
+        <section className="py-10">
+          <div className="mx-auto w-[min(1120px,92vw)]">
+            <ScrollReveal>
+              <figure className="relative ml-auto max-w-[600px] rotate-[-1.4deg] rounded-card border border-amber/30 bg-white/70 p-6 shadow-card-sm backdrop-blur-md sm:p-8 dark:border-amber/25 dark:bg-white/[0.045]">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -top-7 left-5 select-none font-display text-[4.5rem] font-bold leading-none text-amber/70"
+                >
+                  &ldquo;
+                </span>
+                <p className="eyebrow text-stone-500 dark:text-ink-muted">
+                  {HOME.authorEyebrow}
+                </p>
+                <blockquote className="mt-3 text-[1.05rem] leading-relaxed text-stone-700 dark:text-ink-soft">
+                  {HOME.authorQuote}
+                </blockquote>
+                <figcaption className="mt-4 font-display text-[0.95rem] font-semibold text-amber-deep dark:text-amber">
+                  {HOME.authorSign}
+                </figcaption>
+              </figure>
+            </ScrollReveal>
           </div>
         </section>
 

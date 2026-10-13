@@ -59,6 +59,55 @@ body {
   color: var(--amber-ink);
 }
 
+/* Film grain — one SVG feTurbulence overlay over everything.
+   Kills the sterile flat-vector look. Static, pointer-transparent,
+   ~4% opacity: felt, not seen. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Taped-on sticker note */
+.sticker {
+  --sticker-rotate: -3deg;
+  position: relative;
+  display: inline-block;
+  transform: rotate(var(--sticker-rotate));
+  background: #fdf3df;
+  color: #3a2708;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  padding: 0.5rem 0.95rem 0.55rem;
+  border-radius: 3px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+}
+.sticker::before {
+  /* the tape */
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 58px;
+  height: 22px;
+  transform: translateX(-50%) rotate(2.5deg);
+  background: rgba(245, 185, 66, 0.5);
+  border-left: 1px dashed rgba(58, 39, 8, 0.25);
+  border-right: 1px dashed rgba(58, 39, 8, 0.25);
+  border-radius: 1px;
+}
+[data-theme="light"] .sticker {
+  background: #fffdf4;
+  box-shadow: 0 8px 18px rgba(120, 80, 10, 0.22);
+}
+
 /* Gradient headline text */
 .grad-text {
   background: var(--grad);

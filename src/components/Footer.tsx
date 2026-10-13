@@ -35,6 +35,9 @@ export function Footer({ disclaimer }: { disclaimer: string }) {
         <p className="mt-3 text-[0.82rem] text-stone-500 dark:text-ink-muted">
           © {year} Hisab. {COPYRIGHT_LINE}
         </p>
+        <p className="mt-1.5 text-[0.78rem] text-stone-400 dark:text-ink-muted/80">
+          Set in Space Grotesk &amp; Inter · No cookies, no trackers — there&rsquo;s nothing here to track.
+        </p>
 
         {/* Oversized wordmark — scroll-reveal brand moment */}
         <ScrollReveal y={60}>

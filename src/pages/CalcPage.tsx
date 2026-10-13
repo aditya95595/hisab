@@ -52,7 +52,7 @@ export function CalcPage({ page, pageKey }: { page: PageContent; pageKey: string
                     >
                       <span
                         aria-hidden="true"
-                        className="font-display text-[1.6rem] font-bold text-amber-deep/90 dark:text-amber/90"
+                        className="tnum font-display text-[1.6rem] font-bold text-amber-deep/90 dark:text-amber/90"
                       >
                         {i + 1}
                       </span>

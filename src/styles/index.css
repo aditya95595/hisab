@@ -27,6 +27,10 @@
   font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;
   src:url("/fonts/inter-latin-600-normal.woff2") format("woff2");
 }
+@font-face{
+  font-family:"Newsreader";font-style:italic;font-weight:400 500;font-display:swap;
+  src:url("/fonts/newsreader-latin-italic.woff2") format("woff2");
+}
 
 :root {
   --amber: #f5b942;
@@ -59,17 +63,55 @@ body {
   color: var(--amber-ink);
 }
 
+/* Tabular numerals — digits keep a fixed width so animated
+   count-ups and stat numbers never jitter horizontally. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Display type: a hair tighter by default; headlines stay crisp
+   at large sizes without going cramped. */
+.font-display {
+  letter-spacing: -0.015em;
+}
+
 /* Film grain — one SVG feTurbulence overlay over everything.
-   Kills the sterile flat-vector look. Static, pointer-transparent,
-   ~4% opacity: felt, not seen. */
+   Finer and quieter than before: felt, not seen. */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 2000;
   pointer-events: none;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Paper card — barely-there fibre texture + soft top light for
+   key surfaces (results card). Subtle in both themes. */
+.paper-card {
+  position: relative;
+}
+.paper-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+.paper-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent 32%);
+}
+[data-theme="light"] .paper-card::after {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent 30%);
 }
 
 /* Taped-on sticker note */

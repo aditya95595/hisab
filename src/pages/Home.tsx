@@ -158,7 +158,7 @@ export function HomePage() {
                 ].map(([n, l, circled]) => (
                   <div key={l as string} className="flex items-baseline gap-2.5">
                     <span className="relative inline-block">
-                      <span className="grad-text font-display text-[1.6rem] font-bold">{n}</span>
+                      <span className="tnum grad-text font-display text-[1.6rem] font-bold">{n}</span>
                       {circled ? (
                         <CircleHighlight className="absolute -inset-x-3 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)]" />
                       ) : null}
@@ -242,10 +242,10 @@ export function HomePage() {
                 <p className="eyebrow text-stone-500 dark:text-ink-muted">
                   {HOME.authorEyebrow}
                 </p>
-                <blockquote className="mt-3 text-[1.05rem] leading-relaxed text-stone-700 dark:text-ink-soft">
+                <blockquote className="mt-3 font-serif text-[1.12rem] italic leading-relaxed text-stone-700 dark:text-ink-soft">
                   {HOME.authorQuote}
                 </blockquote>
-                <figcaption className="mt-4 font-display text-[0.95rem] font-semibold text-amber-deep dark:text-amber">
+                <figcaption className="mt-4 font-serif text-[0.95rem] italic text-amber-deep dark:text-amber">
                   {HOME.authorSign}
                 </figcaption>
               </figure>

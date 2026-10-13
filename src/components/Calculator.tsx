@@ -77,7 +77,7 @@ function HeroValue({
   values: { numeric: ReturnType<typeof runCalc>["numeric"]; strings: Record<string, string> };
 }) {
   return (
-    <strong className="font-display text-[clamp(2rem,4.6vw,2.9rem)] font-bold leading-none tracking-tight">
+    <strong className="tnum font-display text-[clamp(2rem,4.6vw,2.9rem)] font-bold leading-none tracking-tight">
       {parts.map((p, i) => {
         const str = values.strings[p.key];
         if (str !== undefined) {
@@ -181,7 +181,7 @@ export function CalculatorWorkspace({ config }: { config: WorkspaceConfig }) {
         {/* Results card */}
         <motion.div
           aria-live="polite"
-          className="relative overflow-hidden rounded-card border border-black/10 bg-white/70 p-6 shadow-card backdrop-blur-md dark:border-white/10 dark:bg-white/[0.045] sm:p-7"
+          className="paper-card relative overflow-hidden rounded-card border border-black/10 bg-white/70 p-6 shadow-card backdrop-blur-md dark:border-white/10 dark:bg-white/[0.045] sm:p-7"
           initial={{ opacity: 0, scale: 0.985 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -212,7 +212,7 @@ export function CalculatorWorkspace({ config }: { config: WorkspaceConfig }) {
                   <dt className="text-[0.92rem] text-stone-500 dark:text-ink-muted">
                     {r.label}
                   </dt>
-                  <dd className="m-0 text-right font-display text-[1.05rem] font-semibold">
+                  <dd className="tnum m-0 text-right font-display text-[1.05rem] font-semibold">
                     {displayValue(result.numeric, result.strings, r.key)}
                   </dd>
                 </div>

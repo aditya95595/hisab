@@ -31,6 +31,7 @@ export default {
       fontFamily: {
         display: ['"Space Grotesk"', "Inter", "system-ui", "sans-serif"],
         body: ["Inter", "system-ui", "sans-serif"],
+        serif: ['"Newsreader"', "Georgia", '"Times New Roman"', "serif"],
       },
       borderRadius: {
         card: "18px",

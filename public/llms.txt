@@ -1,6 +1,6 @@
 # Hisab
 
-Hisab (https://hisab.tool-web.workers.dev/) is a free set of calculators for India.
+Hisab (https://hisab-58f.pages.dev/) is a free set of calculators for India.
 No accounts, no uploads — every calculation runs in the visitor's browser.
 
 ## Calculators

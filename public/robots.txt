@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hisab.tool-web.workers.dev/sitemap.xml
+Sitemap: https://hisab-58f.pages.dev/sitemap.xml

@@ -195,7 +195,10 @@ export function CalculatorWorkspace({ config }: { config: WorkspaceConfig }) {
             <span className="mb-1 block text-[0.85rem] uppercase tracking-[0.08em] text-stone-500 dark:text-ink-muted">
               {config.heroLabel}
             </span>
-            <span className="grad-text">
+            {/* NOTE: solid color here, not .grad-text — background-clip:text
+                combined with the 60fps CountUp re-renders ghosts/smers on
+                mobile GPUs. Static headlines can keep the gradient. */}
+            <span className="text-amber-deep dark:text-amber">
               <HeroValue parts={config.heroParts} values={result} />
             </span>
           </div>

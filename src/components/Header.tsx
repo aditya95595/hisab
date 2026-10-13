@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "emi-calculator.html", label: "EMI", page: "emi" },
   { href: "sip-calculator.html", label: "SIP", page: "sip" },
   { href: "percentage-calculator.html", label: "Percentage", page: "percentage" },
+  { href: "about.html", label: "About", page: "about" },
 ];
 
 export function Brand({ className }: { className?: string }) {

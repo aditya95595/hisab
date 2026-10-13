@@ -38,6 +38,38 @@ export function CalcPage({ page, pageKey }: { page: PageContent; pageKey: string
           ))}
         </div>
 
+        {/* How it works — numbered 3-step strip (adapted from the
+            reference site's info-section pattern). */}
+        {page.steps && page.steps.length > 0 && (
+          <section className="py-8" aria-label="How this calculator works">
+            <div className="mx-auto w-[min(1120px,92vw)]">
+              <ScrollReveal>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {page.steps.map((s, i) => (
+                    <div
+                      key={s.t}
+                      className="rounded-card border border-black/10 bg-white/60 p-5 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.045]"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="font-display text-[1.6rem] font-bold text-amber-deep/90 dark:text-amber/90"
+                      >
+                        {i + 1}
+                      </span>
+                      <h3 className="mt-2 font-display text-[1.02rem] font-semibold">
+                        {s.t}
+                      </h3>
+                      <p className="mt-1.5 text-[0.9rem] leading-relaxed text-stone-500 dark:text-ink-muted">
+                        {s.d}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
+        )}
+
         {/* Explainer */}
         <section className="py-8">
           <div className="mx-auto w-[min(760px,92vw)]">

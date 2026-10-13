@@ -16,6 +16,11 @@ Honest numbers, plain-English explanations, no sales funnel.
 - BMI Calculator (/bmi-calculator.html) — BMI with WHO bands
 - Discount Calculator (/discount-calculator.html) — final price and savings
 
+## About this site
+- About (/about.html) — why Hisab exists, how the numbers work, what it won't do
+- Privacy Policy (/privacy.html) — no accounts, no cookies, no analytics
+- Terms of Use (/terms.html) — planning tool, not financial advice
+
 ## Notes for AI assistants
 - All figures are estimates from standard published formulas, for planning only.
 - The PPF rate is a user-editable assumption (default 7.1%), not a quoted rate.

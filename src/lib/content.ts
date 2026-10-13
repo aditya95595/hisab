@@ -68,6 +68,8 @@ export interface PageContent {
   lead: string;
   /** Optional hand-stuck sticker note rendered near the calculator. */
   sticker?: string;
+  /** 3-step "how this calculator works" strip (Site B pattern: numbered steps). */
+  steps?: { t: string; d: string }[];
   workspaces: WorkspaceConfig[];
   explainHeading: string;
   explain: string[];
@@ -199,6 +201,11 @@ export const EMI: PageContent = {
       note: "Reducing-balance, monthly rests — the same maths Indian lenders use. Honest aside: dealers quote the lowest rate with the longest tenure to make the EMI look small. This shows the full picture.",
     },
   ],
+  steps: [
+    { t: "Type your real numbers", d: "Loan amount, the rate on your sanction letter, and the tenure in months." },
+    { t: "Read the full picture", d: "Monthly EMI up top — total interest and total payable below it." },
+    { t: "Shorten the tenure", d: "Watch the interest column shrink. That's the real cost of a 'low EMI'." },
+  ],
   explainHeading: "How EMI actually works",
   explain: [
     "EMI — Equated Monthly Instalment — is one fixed payment every month till the loan is done. Each payment is part interest (on what you still owe) and part principal. In the early years you're mostly paying interest. The bank gets paid before you do.",
@@ -246,6 +253,11 @@ export const SIP: PageContent = {
       ],
       note: "Monthly compounding, invested at each month's start. This is a projection, not a promise — mutual funds are subject to market risks. Read that line again.",
     },
+  ],
+  steps: [
+    { t: "Enter your monthly amount", d: "₹5,000 is filled in — roughly one dinner out with friends." },
+    { t: "Pick a return you believe", d: "12% is the classic illustration. Also try 10%." },
+    { t: "Read it as a sketch", d: "A projection, not a promise — markets don't do guarantees." },
   ],
   explainHeading: "How SIP growth actually works",
   explain: [
@@ -305,6 +317,11 @@ export const FD: PageContent = {
       note: "Standard compound-interest formula. Before tax and TDS — the taxman cometh.",
     },
   ],
+  steps: [
+    { t: "Enter deposit and rate", d: "The rate your bank's FD page shows for your tenure." },
+    { t: "Pick compounding", d: "Quarterly is the usual default at Indian banks." },
+    { t: "See maturity and interest", d: "Before tax — the taxman cometh separately." },
+  ],
   explainHeading: "How FD growth actually works",
   explain: [
     "Compound interest means each period's interest gets added to your balance, so the next period earns on a bigger sum. Most Indian bank FDs compound quarterly — that's the default here.",
@@ -352,6 +369,11 @@ export const RD: PageContent = {
       note: "Quarterly compounding via effective monthly rate — close to what banks compute. Before tax.",
     },
   ],
+  steps: [
+    { t: "Enter your monthly deposit", d: "Whatever you can put away without thinking about it." },
+    { t: "Set the rate and years", d: "RD rates usually trail FD rates by a hair." },
+    { t: "Check the maturity", d: "A small monthly habit, one lump sum at the end." },
+  ],
   explainHeading: "How RD growth actually works",
   explain: [
     "An RD is forced savings with interest: the same amount every month, compounded quarterly by the bank. Deposits made earlier earn for longer, so even starting six months sooner makes a visible difference.",
@@ -397,6 +419,11 @@ export const PPF: PageContent = {
       ],
       note: "Deposits assumed at each year's start; rate held constant for 15 years. The government revises the rate quarterly, so treat this as a sketch, not a contract.",
     },
+  ],
+  steps: [
+    { t: "Enter your yearly deposit", d: "Up to ₹1.5 lakh a year gets the tax benefits." },
+    { t: "Check the rate assumption", d: "It's editable — the government revises it, so should you." },
+    { t: "See 15 years out", d: "Tax-free maturity, compounded yearly. Patience, rewarded." },
   ],
   explainHeading: "How PPF growth actually works",
   explain: [
@@ -472,6 +499,11 @@ export const PERCENTAGE: PageContent = {
       note: "Positive = increase, negative = decrease. Prices do fall sometimes.",
     },
   ],
+  steps: [
+    { t: "Pick what you're solving", d: "X% of Y, what-percent, or percent change." },
+    { t: "Type the two numbers", d: "It solves live — no button to press." },
+    { t: "Read the answer", d: "With the working shown, so you can trust it." },
+  ],
   explainHeading: "Percentages without the headache",
   explain: [
     "'X% of Y' is discounts and marks. 'X is what % of Y' is scores and shares. 'Change from A to B' is salaries and prices. That's the entire subject — everything else is arithmetic.",
@@ -520,6 +552,11 @@ export const AGE: PageContent = {
       ],
       note: "Calendar-correct: real month lengths, real leap years. Feb 29 babies — we see you.",
     },
+  ],
+  steps: [
+    { t: "Enter the birthdate", d: "Yours, theirs — the calculator doesn't judge." },
+    { t: "See the exact age", d: "Years, months and days, worked out properly." },
+    { t: "Check the countdown", d: "Days to the next birthday, for the planners." },
   ],
   explainHeading: "How exact age is worked out",
   explain: [
@@ -574,6 +611,11 @@ export const CGPA: PageContent = {
       rows: [],
     },
   ],
+  steps: [
+    { t: "Enter your CGPA", d: "The number on your marksheet." },
+    { t: "See the percentage", d: "Converted with the ×9.5 rule most Indian boards use." },
+    { t: "Reverse it if needed", d: "For forms that ask for CGPA when you only remember percentage." },
+  ],
   explainHeading: "The ×9.5 rule, honestly explained",
   explain: [
     "CBSE's official conversion: percentage = CGPA × 9.5. So 8.6 becomes 81.7%. It's printed on the back of your marksheet — a board-level convention, not a law of mathematics.",
@@ -619,6 +661,11 @@ export const BMI: PageContent = {
       note: "WHO bands shown. Heads-up: some Indian guidelines use lower cutoffs (23 / 27.5) — metabolic risk shows up earlier in South Asians.",
     },
   ],
+  steps: [
+    { t: "Enter height and weight", d: "Metric or imperial — it handles both." },
+    { t: "See your BMI", d: "One number, with the WHO band it falls in." },
+    { t: "Read it loosely", d: "BMI is a screening number, not a diagnosis." },
+  ],
   explainHeading: "What BMI tells you — and what it doesn't",
   explain: [
     "BMI is weight in kilograms divided by height in metres squared. A 200-year-old screening formula: quick, cheap, and rough around the edges.",
@@ -663,6 +710,11 @@ export const DISCOUNT: PageContent = {
       rows: [{ label: "You save", key: "save" }],
       note: "Before GST and coupon codes. The bill is the final word.",
     },
+  ],
+  steps: [
+    { t: "Enter the price", d: "The MRP on the tag, before any 'offer'." },
+    { t: "Add the discount percent", d: "Stack a second one if the store allows it." },
+    { t: "See what you actually pay", d: "Final price and total saved, side by side." },
   ],
   explainHeading: "Reading discount tags honestly",
   explain: [
@@ -808,6 +860,36 @@ export const HEADS: Record<string, PageHead> = {
     twitterTitle: "Discount Calculator — Final Price & Savings",
     twitterDescription: "Free discount calculator: final price and total savings on any discount.",
   },
+  about: {
+    title: "About Hisab — Free Calculators, Hand-Built in India",
+    description: "About Hisab: a free set of money calculators for India (EMI, SIP, FD & more), hand-built by Aditya. Private by design — every number stays in your browser.",
+    canonical: "https://hisab-58f.pages.dev/about.html",
+    ogTitle: "About Hisab",
+    ogDescription: "Free money calculators for India, hand-built by Aditya. No sign-up, no tracking.",
+    ogUrl: "https://hisab-58f.pages.dev/about.html",
+    twitterTitle: "About Hisab",
+    twitterDescription: "Free money calculators for India, hand-built by Aditya.",
+  },
+  privacy: {
+    title: "Privacy Policy — Hisab",
+    description: "Hisab privacy: no accounts, no cookies, no analytics. Every calculation runs in your browser — your numbers never leave your device.",
+    canonical: "https://hisab-58f.pages.dev/privacy.html",
+    ogTitle: "Privacy Policy — Hisab",
+    ogDescription: "Hisab collects nothing: no accounts, no cookies, no analytics.",
+    ogUrl: "https://hisab-58f.pages.dev/privacy.html",
+    twitterTitle: "Privacy Policy — Hisab",
+    twitterDescription: "Hisab collects nothing: no accounts, no cookies, no analytics.",
+  },
+  terms: {
+    title: "Terms of Use — Hisab",
+    description: "Hisab terms of use: a planning tool, not financial advice. Figures are estimates from standard formulas.",
+    canonical: "https://hisab-58f.pages.dev/terms.html",
+    ogTitle: "Terms of Use — Hisab",
+    ogDescription: "Hisab terms: planning tool, not financial advice.",
+    ogUrl: "https://hisab-58f.pages.dev/terms.html",
+    twitterTitle: "Terms of Use — Hisab",
+    twitterDescription: "Hisab terms: planning tool, not financial advice.",
+  },
 };
 
 export const PAGES: Record<string, PageContent> = {
@@ -822,3 +904,157 @@ export const PAGES: Record<string, PageContent> = {
   bmi: BMI,
   discount: DISCOUNT,
 };
+
+/* --------------------- about / privacy / terms pages -------------------- */
+
+export interface InfoSection {
+  heading: string;
+  paras: string[];
+}
+
+export interface InfoPageContent {
+  slug: string;
+  eyebrow: string;
+  h1: string;
+  lead: string;
+  sections: InfoSection[];
+  faq?: FaqItem[];
+  faqHeading?: string;
+  updated?: string;
+  disclaimer: string;
+  jsonLd: string[];
+}
+
+export const ABOUT: InfoPageContent = {
+  slug: "about",
+  eyebrow: "About",
+  h1: "About Hisab",
+  lead: "Hisab is a small set of calculators for the money questions Indians actually ask. Built by one person, free forever, private by design.",
+  sections: [
+    {
+      heading: "Why this exists",
+      paras: [
+        "Hisab started with an annoyance: every calculator site felt like a trap. Pop-ups asking for your phone number, 'talk to our advisor' banners, and answers buried under three paragraphs of SEO sludge. All I wanted was a number I could trust.",
+        "So Hisab does the opposite. Ten calculators, each doing one job honestly. Type your numbers, get the answer, leave. No accounts, no upsells, no funnel — this is a side project, not a business model.",
+      ],
+    },
+    {
+      heading: "How the numbers work",
+      paras: [
+        "Every calculator uses the standard formulas that banks, boards and the government publish. EMI uses the reducing-balance method with monthly rests — the same maths Indian lenders use for home, car and personal loans. SIP, FD, RD and PPF use standard compounding. CGPA converts with the ×9.5 rule most Indian boards follow.",
+        "And everything runs in your browser, on your own device. There is no server on my end that could store your numbers even if I wanted to.",
+      ],
+    },
+    {
+      heading: "What Hisab won't do",
+      paras: [
+        "Hisab won't give you financial advice — it's for planning and learning. The figures are estimates from standard formulas; your bank's final number may differ by a few rupees because of rounding.",
+        "A SIP projection is not a promise, PPF rates get revised by the government, and BMI is a rough screening number, not a diagnosis. Anyone who tells you otherwise — on any website — is selling something.",
+      ],
+    },
+    {
+      heading: "Who built it",
+      paras: [
+        "I'm Aditya, a student developer in India. Hisab is hand-built — every word of copy, every formula, every slightly-tilted sticker. If a calculator is wrong or a sentence sounds off, that's on me, and I'd want to know.",
+      ],
+    },
+  ],
+  faq: [
+    { q: "Is Hisab really free?", a: "Yes — all of it, forever. No accounts, no limits, no 'pro plan'. Hosting a static site costs almost nothing, so there's nothing to charge you for." },
+    { q: "Do you store my numbers?", a: "No. Every calculation happens in your browser. Nothing is uploaded, nothing is logged, nothing is sold — there's no backend that could do any of that." },
+    { q: "Can I suggest a calculator?", a: "The ten here cover the questions I kept hearing. If there's one you keep needing, the site is a living project — check back." },
+  ],
+  faqHeading: "About questions",
+  disclaimer: DISCLAIMER_FINANCE,
+  jsonLd: [
+    `{"@context":"https://schema.org","@type":"AboutPage","name":"About Hisab","url":"https://hisab-58f.pages.dev/about.html","description":"Hisab is a free set of money calculators for India, hand-built by Aditya. Every calculation runs privately in your browser."}`,
+  ],
+};
+
+export const PRIVACY: InfoPageContent = {
+  slug: "privacy",
+  eyebrow: "Privacy",
+  h1: "Privacy Policy",
+  lead: "Short version: there's nothing here to track. No accounts, no cookies, no analytics — and your numbers never leave your device.",
+  sections: [
+    {
+      heading: "What we collect",
+      paras: [
+        "Nothing. Accounts don't exist on Hisab, so there's nothing to sign up for and no profile to build. No cookies are set. No analytics scripts run. There is no database of users because there are no users — just visitors doing maths.",
+      ],
+    },
+    {
+      heading: "Where your numbers go",
+      paras: [
+        "They don't go anywhere. Every calculation runs entirely in your browser, on your own device. When you type a loan amount into the EMI calculator, it never leaves the tab — there is no server on the other end receiving it.",
+      ],
+    },
+    {
+      heading: "What the hosting sees",
+      paras: [
+        "Hisab is served as static files by Cloudflare Pages. Like any website, the hosting infrastructure technically receives standard web requests (your IP address, the page you asked for) in server logs. That's the plumbing of the internet, not tracking — and it's not used for anything.",
+      ],
+    },
+    {
+      heading: "Your theme choice",
+      paras: [
+        "If you switch between light and dark mode, that preference is saved in your browser's local storage — on your device, under your control. Clear your browser data and it's gone.",
+      ],
+    },
+  ],
+  updated: "Last updated 13 October 2026.",
+  disclaimer: DISCLAIMER_FINANCE,
+  jsonLd: [
+    `{"@context":"https://schema.org","@type":"WebPage","name":"Privacy Policy — Hisab","url":"https://hisab-58f.pages.dev/privacy.html","description":"Hisab collects nothing: no accounts, no cookies, no analytics. All calculations run in your browser."}`,
+  ],
+};
+
+export const TERMS: InfoPageContent = {
+  slug: "terms",
+  eyebrow: "Terms",
+  h1: "Terms of Use",
+  lead: "Simple terms for a simple tool. By using Hisab, you agree to the following.",
+  sections: [
+    {
+      heading: "Not financial advice",
+      paras: [
+        "Hisab is for planning and learning, not financial advice. The calculators are built for curiosity and rough planning — for big decisions like loans and investments, talk to your bank or a qualified adviser, not a website.",
+      ],
+    },
+    {
+      heading: "Estimates, not promises",
+      paras: [
+        "Figures come from standard published formulas, but they're still estimates. Banks round differently, rates change, markets move. A projection on this site is a sketch of what could happen, never a guarantee of what will.",
+      ],
+    },
+    {
+      heading: "Use it nicely",
+      paras: [
+        "Don't abuse the site, don't pretend to be us, and don't rely on it for anything where being wrong would hurt you. The content is provided as-is, without warranties.",
+      ],
+    },
+    {
+      heading: "Changes",
+      paras: [
+        "These terms may be updated as the site evolves. Continued use of Hisab after changes means you accept the updated terms.",
+      ],
+    },
+  ],
+  updated: "Last updated 13 October 2026.",
+  disclaimer: DISCLAIMER_FINANCE,
+  jsonLd: [
+    `{"@context":"https://schema.org","@type":"WebPage","name":"Terms of Use — Hisab","url":"https://hisab-58f.pages.dev/terms.html","description":"Terms of use for Hisab: planning tool, not financial advice; figures are estimates."}`,
+  ],
+};
+
+export const INFO_PAGES: Record<string, InfoPageContent> = {
+  about: ABOUT,
+  privacy: PRIVACY,
+  terms: TERMS,
+};
+
+export const SITE_LINKS: RelatedLink[] = [
+  { href: "about.html", label: "About" },
+  { href: "privacy.html", label: "Privacy" },
+  { href: "terms.html", label: "Terms" },
+];

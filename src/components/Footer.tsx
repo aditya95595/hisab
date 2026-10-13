@@ -1,6 +1,6 @@
 /* Site footer — Vengence animated-footer pattern adapted to Hisab:
    oversized wordmark reveal, link grid, disclaimer, live year. */
-import { FOOTER_LINKS, COPYRIGHT_LINE } from "../lib/content";
+import { FOOTER_LINKS, SITE_LINKS, COPYRIGHT_LINE } from "../lib/content";
 import { useYear } from "../lib/theme";
 import { Brand } from "./Header";
 import { ScrollReveal } from "./motion";
@@ -35,6 +35,17 @@ export function Footer({ disclaimer }: { disclaimer: string }) {
         <p className="mt-3 text-[0.82rem] text-stone-500 dark:text-ink-muted">
           © {year} Hisab. {COPYRIGHT_LINE}
         </p>
+        <nav aria-label="Site" className="mt-2.5 flex flex-wrap gap-x-5 gap-y-1.5">
+          {SITE_LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="link-line text-[0.85rem] text-stone-500 no-underline transition-colors hover:text-amber-deep dark:text-ink-muted dark:hover:text-amber"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
         <p className="mt-1.5 text-[0.78rem] text-stone-400 dark:text-ink-muted/80">
           Set in Space Grotesk &amp; Inter · No cookies, no trackers — there&rsquo;s nothing here to track.
         </p>

@@ -17,6 +17,9 @@ const pages = [
   "cgpa-calculator",
   "bmi-calculator",
   "discount-calculator",
+  "about",
+  "privacy",
+  "terms",
 ];
 
 export default defineConfig({

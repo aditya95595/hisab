@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hisab "Midnight Amber" — ported design tokens, premium rebuild.
+   Dark-first, amber accent. Space Grotesk display + Inter body. */
+
+/* Self-hosted fonts (original WOFF2 binaries from the static build;
+   no Google Fonts CDN dependency). */
+@font-face{
+  font-family:"Space Grotesk";font-style:normal;font-weight:500;font-display:swap;
+  src:url("/fonts/space-grotesk-latin-500-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Space Grotesk";font-style:normal;font-weight:700;font-display:swap;
+  src:url("/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;
+  src:url("/fonts/inter-latin-400-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;
+  src:url("/fonts/inter-latin-500-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;
+  src:url("/fonts/inter-latin-600-normal.woff2") format("woff2");
+}
+
+:root {
+  --amber: #f5b942;
+  --amber-deep: #e08a1e;
+  --amber-ink: #201303;
+  --amber-soft: rgba(245, 185, 66, 0.12);
+  --grad: linear-gradient(120deg, #f5b942, #ff8c42);
+}
+
+[data-theme="light"] {
+  --amber: #b97a12;
+  --amber-deep: #d18a1b;
+  --amber-ink: #fff8e8;
+  --amber-soft: rgba(185, 122, 18, 0.12);
+  --grad: linear-gradient(120deg, #d99a22, #e07b2a);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--amber-ink);
+}
+
+/* Gradient headline text */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow label with amber rule */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--grad);
+  border-radius: 2px;
+  flex: none;
+}
+
+/* Animated link underline (Vengence line-hover-link style, amber) */
+.link-line {
+  position: relative;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: var(--grad);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-line:hover::after,
+.link-line[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Fine grid texture for hero */
+.hero-grid-texture {
+  background-image:
+    linear-gradient(to right, rgba(245, 185, 66, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 185, 66, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);
+}
+[data-theme="light"] .hero-grid-texture {
+  background-image:
+    linear-gradient(to right, rgba(185, 122, 18, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 122, 18, 0.07) 1px, transparent 1px);
+}
+
+/* Custom number input: hide spinners, keep it clean */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Focus-visible ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Marquee pause on hover */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Kinetic char: preserve 3D for flip */
+.flip-char {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
